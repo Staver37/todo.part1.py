@@ -2,7 +2,6 @@
 # APP -> memory ->task
 # CRUD / BREAD
 from os import system
-from stringprep import in_table_c11
 tasks = [] # empty lists
 # MAIN LOOP  ######################################
 while True:
@@ -39,17 +38,14 @@ while True:
     
     if option == 3:
         system("clear")
-        index = int(input("Enter task position you want remove :"))-1
-        print(tasks[index]) #<-------
-        tasks.pop(index)
-#-------------need atention------------------------------
-        #input("Type YES to remove this TASK:")   
-        #if index == "YES":
-        #   tasks.pop(index)
-        #else:
-        #    print(index)
-#-------------------------------------------------------        
-
+        while True:
+            index = int(input("Enter task position you want remove :"))-1
+            print(tasks[index])
+            i = input("Type YES to remove this TASK:") 
+            if i == "0":
+                break
+            if i == "YES":
+                tasks.pop(index)      
 # EDIT A TASK ####################################       
     if option == 4:    
         system("clear")
@@ -61,7 +57,9 @@ while True:
     if option == 5:
         system("clear")
         i1 =int(input("Enter Task A: "))
+        print(tasks[i1-1])
         i2 =int (input("Enter Task B: "))
+        print(tasks[i2-1])
         tasks[i1-1],tasks[i2-1] = tasks[i2-1],tasks[i1-1]      
 # Exit ########################################## 
     if option == 0:            
